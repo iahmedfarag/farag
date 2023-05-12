@@ -18,7 +18,7 @@ const LetterElement = ({ letter, index }) => {
   if (letter === "g") {
     return (
       <Wrapper
-        style={{ color: "red" }}
+        style={{ color: "#A7233A" }}
         className="animate__animated"
         onMouseEnter={(e) => hoverd(e.target)}
         onMouseLeave={(e) => left(e.target)}

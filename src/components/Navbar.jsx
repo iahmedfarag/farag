@@ -2,6 +2,7 @@ import React from "react";
 import { styled } from "styled-components";
 import icon from "../assets/images/logo/favicon3.ico";
 import { navLinks } from "../data.js";
+import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <Wrapper>
@@ -9,9 +10,9 @@ const Navbar = () => {
         <div className="wrapper">
           {/* logo */}
           <div className="logo">
-            <a href="/">
+            <Link to="/">
               <img src={icon} alt="logo" />
-            </a>
+            </Link>
           </div>
           {/* nav links */}
           <div className="nav-links">
@@ -20,7 +21,7 @@ const Navbar = () => {
                 const { id, text, url } = link;
                 return (
                   <li key={id}>
-                    <a href={url}>{text}</a>
+                    <Link to={url}>{text}</Link>
                   </li>
                 );
               })}
@@ -35,7 +36,6 @@ const Navbar = () => {
 };
 const Wrapper = styled.nav`
   font-family: "Acme", sans-serif;
-  /* width: 100%; */
   height: 100px;
   display: flex;
   align-items: center;
@@ -50,10 +50,16 @@ const Wrapper = styled.nav`
       .nav-links {
         ul {
           display: flex;
-          gap: 30px;
+          gap: 20px;
           li {
             a {
               font-size: 24px;
+              padding: 10px;
+              transition: 0.1s;
+              &:hover {
+                /* box-shadow: rgba(172, 22, 22, 0.2) 0px 2px 8px 0px; */
+                color: var(--color-red);
+              }
             }
           }
         }
@@ -61,6 +67,22 @@ const Wrapper = styled.nav`
     }
     @media (min-width: 1200px) {
       max-width: 1140px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .container {
+      .wrapper {
+        .nav-links {
+          ul {
+            li {
+              a {
+                font-size: 20px;
+              }
+            }
+          }
+        }
+      }
     }
   }
 `;

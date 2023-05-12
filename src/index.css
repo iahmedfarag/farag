@@ -4,10 +4,21 @@
   margin: 0;
   padding: 0;
 }
+:root {
+  --color-red: #a7233a;
+  --color-red-dark: #962034;
+  --color-red-darker: #861c2e;
+  --color-white: #fff;
+  --color-white-dark: #f2f2f2;
+  --color-black: #000;
+  --color-black-4: #444;
+  --color-grey: #eee;
+}
 body {
   font-family: "Josefin Sans", sans-serif;
-  background-color: #eee;
+  background-color: var(--color-white-dark);
 }
+
 button {
   cursor: pointer;
   border: none;
@@ -50,3 +61,15 @@ ul {
     max-width: 1320px;
   }
 } */
+.main-btn {
+  display: block;
+  width: fit-content;
+  padding: 10px 20px;
+  background-color: var(--color-red);
+  color: var(--color-white);
+  font-weight: bold;
+  font-size: 20px;
+}
+.main-btn:hover {
+  background-color: var(--color-red-darker);
+}
