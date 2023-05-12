@@ -4,7 +4,7 @@ import {
   Contact,
   Home,
   Layout,
-  Portfolio,
+  PortfolioPage,
   ProjectDetails,
   Skills,
 } from "./pages";
@@ -25,7 +25,7 @@ function App() {
         },
         {
           path: "/portfolio",
-          element: <Portfolio />,
+          element: <PortfolioPage />,
         },
         {
           path: "/skills",

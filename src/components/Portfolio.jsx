@@ -1,27 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { styled } from "styled-components";
 import { portfolio as projects } from "../data.js";
 
 import Project from "./Project.jsx";
-const Portfolio = () => {
+const Portfolio = ({ padding }) => {
   const [isExtra, setIsExtra] = useState(false);
+
   return (
-    <Wrapper>
+    <Wrapper style={{ padding: padding ? padding : "100px 0" }}>
       <div className="container">
         <h2>Portfolio</h2>
         <div className="wrapper">
           <div className="projects">
             {projects.projects.map((project) => {
-              const {
-                id,
-                thumbnail,
-                images,
-                title,
-                short_description,
-                description,
-                skills,
-                urls,
-              } = project;
+              const { id, thumbnail, title, short_description, urls } = project;
               return (
                 <Project
                   key={id}
@@ -46,16 +38,8 @@ const Portfolio = () => {
           <div className="projects extra">
             {isExtra &&
               projects.extra.map((project) => {
-                const {
-                  id,
-                  thumbnail,
-                  images,
-                  title,
-                  short_description,
-                  description,
-                  skills,
-                  urls,
-                } = project;
+                const { id, thumbnail, title, short_description, urls } =
+                  project;
                 return (
                   <Project
                     key={id}

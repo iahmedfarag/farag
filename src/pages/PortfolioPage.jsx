@@ -1,16 +1,15 @@
 import React, { useEffect } from "react";
-import { Hero, Portfolio } from "../components";
+import { Portfolio } from "../components";
 
-const Home = () => {
+const PortfolioPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
   return (
     <>
-      <Hero />
-      <Portfolio />
+      <Portfolio padding={"50px"} />
     </>
   );
 };
 
-export default Home;
+export default PortfolioPage;

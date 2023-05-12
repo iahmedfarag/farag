@@ -18,7 +18,9 @@ const ProjectDetails = () => {
       setProject(...proj);
     }
   }, []);
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   if (!project) {
     return <></>;
   }
