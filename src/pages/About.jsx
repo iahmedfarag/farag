@@ -3,24 +3,25 @@ import { useAppContext } from "../context.jsx";
 import { styled } from "styled-components";
 import img from "../assets/images/farag.png";
 import { Link } from "react-router-dom";
-import Layout from "./Layout";
+
 const About = () => {
   const { isLoading, setIsLoading } = useAppContext();
 
-  // useEffect(() => {
-  // setIsLoading(true);
-  // setTimeout(() => {
-  //   setIsLoading(false);
-  // }, 500);
-  // }, []);
+  useEffect(() => {
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 500);
+  }, []);
+  // let x = window.matchMedia("(max-width: 576px)");
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
 
-  // if (isLoading) {
-  //   return <h1>Loading...</h1>;
-  // }
+  if (isLoading) {
+    return <h1>Loading...</h1>;
+  }
 
   return (
     <Wrapper>
@@ -32,25 +33,29 @@ const About = () => {
             <p>
               Im a front-end developer with more than a year of self-study
               experience. I’m passionate about building user-friendly and
-              visually appealing websites and applications. I have a strong
+              visually appealing websites and applications.
+              {/* {!x.matches &&
+                `I have a strong
               understanding of HTML, CSS, and JavaScript, as well as experience
               with React, Redux, and react-styled-components. I’m also
-              proficient in using Git and GitHub for version control.
+              proficient in using Git and GitHub for version control.`} */}
             </p>
           </header>
 
           <div className="content">
             <p>
+              {/* {!x.matches &&
+                `I have also completed the
+                <Link> React 18 Tutorials and Projects Course 2023 </Link> by
+                instructor John Smilga on Udemy, and
+                <Link> React-Styled-Components Course </Link> by instructor John
+                Smilga on Udemy. <br />`} */}
               I am currently enrolled in a full-stack diploma program at
-              <Link> Route Academy </Link>. I have also completed the
-              <Link> React 18 Tutorials and Projects Course 2023 </Link> by
-              instructor John Smilga on Udemy, and
-              <Link> React-Styled-Components Course </Link> by instructor John
-              Smilga on Udemy. <br /> I am a highly motivated and self-directed
-              learner with a strong passion for web development.I am always
-              looking for new challenges and opportunities to learn and grow. I
-              am confident that I have the skills and experience to be a
-              valuable asset to any team.
+              <Link> Route Academy </Link>. I am a highly motivated and
+              self-directed learner with a strong passion for web development. I
+              am always looking for new challenges and opportunities to learn
+              and grow. I am confident that I have the skills and experience to
+              be a valuable asset to any team.
             </p>
           </div>
 
@@ -92,7 +97,7 @@ const Wrapper = styled.main`
   padding: 50px 0;
   .container {
     h1 {
-      text-align: center;
+      /* text-align: center; */
       font-size: 40px;
       margin-bottom: 50px;
     }
@@ -158,6 +163,27 @@ const Wrapper = styled.main`
                   }
                 }
               }
+            }
+          }
+        }
+      }
+    }
+  }
+  @media (max-width: 576px) {
+    padding-left: 10px;
+    padding-right: 10px;
+    .container {
+      h1 {
+        font-size: 30px;
+      }
+      .wrapper {
+        p {
+          font-size: 16px;
+        }
+        .sum {
+          div {
+            ul {
+              /* gap: 10px; */
             }
           }
         }
