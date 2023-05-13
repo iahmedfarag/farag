@@ -5,4 +5,14 @@ import LetterElement from "./LetterElement";
 import Navbar from "./Navbar";
 import Portfolio from "./Portfolio";
 import Project from "./Project";
-export { DownArror, UpArrow, Hero, LetterElement, Navbar, Portfolio, Project };
+import ContactComp from "./ContactComp";
+export {
+  DownArror,
+  UpArrow,
+  Hero,
+  LetterElement,
+  Navbar,
+  Portfolio,
+  Project,
+  ContactComp,
+};

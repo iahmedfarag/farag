@@ -92,7 +92,7 @@ const Wrapper = styled.article`
     }
   }
   @media (max-width: 768px) {
-    width: calc(100%);
+    width: 100%;
   }
 `;
 export default Project;

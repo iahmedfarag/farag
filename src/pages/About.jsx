@@ -174,18 +174,11 @@ const Wrapper = styled.main`
     padding-right: 10px;
     .container {
       h1 {
-        font-size: 30px;
+        font-size: 35px;
       }
       .wrapper {
         p {
           font-size: 16px;
-        }
-        .sum {
-          div {
-            ul {
-              /* gap: 10px; */
-            }
-          }
         }
       }
     }

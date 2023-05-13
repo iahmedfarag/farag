@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Hero, Portfolio } from "../components";
+import { ContactComp, Hero, Portfolio } from "../components";
 import { useAppContext } from "../context.jsx";
 
 const Home = () => {
@@ -24,6 +24,7 @@ const Home = () => {
     <>
       <Hero />
       <Portfolio />
+      <ContactComp />
     </>
   );
 };

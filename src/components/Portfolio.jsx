@@ -17,7 +17,7 @@ const Portfolio = ({ padding }) => {
   };
 
   return (
-    <Wrapper style={{ padding: padding ? padding : "100px 0" }}>
+    <Wrapper>
       <div className="container">
         <h2>Portfolio</h2>
         <div className="wrapper">
@@ -92,7 +92,8 @@ const Wrapper = styled.section`
       }
     }
   }
-  @media (max-width: 768px) {
+
+  @media (max-width: 992px) {
     .container {
       .wrapper {
         .projects {
