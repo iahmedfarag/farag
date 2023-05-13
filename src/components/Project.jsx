@@ -4,6 +4,7 @@ import { styled } from "styled-components";
 import { AiFillGithub } from "react-icons/ai";
 import { BsFillShareFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
+import AOS from "aos";
 const Project = ({
   id,
   thumbnail,
@@ -12,10 +13,11 @@ const Project = ({
   urls,
   category,
 }) => {
-  return (
-    <Wrapper key={id}>
-      <img src={thumbnail} alt="project" />
+  AOS.init();
 
+  return (
+    <Wrapper key={id} data-aos="fade-left">
+      <img src={thumbnail} alt="project" />
       <div>
         <h3>
           <Link to={`/${category}/${id}`}>{title}</Link>

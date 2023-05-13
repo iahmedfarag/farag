@@ -9,11 +9,11 @@ const About = () => {
 
   useEffect(() => {
     setIsLoading(true);
+
     setTimeout(() => {
       setIsLoading(false);
-    }, 500);
+    }, 5000);
   }, []);
-  // let x = window.matchMedia("(max-width: 576px)");
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -94,6 +94,7 @@ const About = () => {
   );
 };
 const Wrapper = styled.main`
+  margin-top: 100px;
   padding: 50px 0;
   .container {
     h1 {

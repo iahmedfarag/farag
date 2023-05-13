@@ -2,10 +2,10 @@ import React, { useEffect } from "react";
 import { styled } from "styled-components";
 
 const LetterElement = ({ letter, index }) => {
-  let clas = index % 2 == 0 ? "animate__swing" : "animate__shakeY";
+  let clas = index % 2 == 0 ? "animate__swing" : "animate__swing";
 
   const hoverd = (el) => {
-    el.classList.remove("animate__slower");
+    el.classList.remove("animate__slow");
     el.classList.add("animate__heartBeat");
   };
 
@@ -34,7 +34,7 @@ const LetterElement = ({ letter, index }) => {
 
   return (
     <Wrapper
-      className={`animate__animated animate__slower  ${clas}`}
+      className={`animate__animated animate__slow  ${clas}`}
       onMouseEnter={(e) => hoverd(e.target)}
       onMouseLeave={(e) => left(e.target)}
     >

@@ -67,12 +67,29 @@ ul {
 .main-btn {
   display: block;
   width: fit-content;
-  padding: 10px 20px;
-  background-color: var(--color-red);
-  color: var(--color-white);
-  font-weight: bold;
-  font-size: 20px;
+  padding: 10px 25px;
+  font-size: 18px;
+  border: 1px solid var(--color-red);
+  position: relative;
 }
+.main-btn p {
+  position: relative;
+  z-index: 3;
+}
+.main-btn span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 0px;
+  background-color: var(--color-red);
+  transition: 0.5s;
+  z-index: 1;
+}
+
 .main-btn:hover {
-  background-color: var(--color-red-darker);
+  color: var(--color-white);
+}
+.main-btn:hover span {
+  width: 100%;
 }

@@ -109,6 +109,8 @@ const ProjectDetails = () => {
   }
 };
 const Wrapper = styled.main`
+  margin-top: 100px;
+
   padding: 50px 0;
   .container {
     h1 {
@@ -229,6 +231,7 @@ const Wrapper = styled.main`
   @media (max-width: 576px) {
     padding-left: 10px;
     padding-right: 10px;
+    margin-top: 70px;
   }
 `;
 export default ProjectDetails;

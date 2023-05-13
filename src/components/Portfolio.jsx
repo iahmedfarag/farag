@@ -8,18 +8,26 @@ import {
   BsArrowUp,
 } from "react-icons/bs";
 import Project from "./Project.jsx";
-const Portfolio = ({ padding }) => {
+import AOS from "aos";
+import LetterElement from "./LetterElement.jsx";
+
+const Portfolio = () => {
   const [isExtra, setIsExtra] = useState(false);
   const extraRef = useRef(null);
-
   const extraStyles = {
     maxHeight: isExtra ? `${extraRef.current.scrollHeight + "px"}` : "0px",
   };
+  let title = "P o r t f o l i o";
+  AOS.init();
 
   return (
     <Wrapper>
       <div className="container">
-        <h2>Portfolio</h2>
+        <h2>
+          {title.split(" ").map((letter, index) => {
+            return <LetterElement key={index} index={index} letter={letter} />;
+          })}
+        </h2>
         <div className="wrapper">
           <div className="projects">
             {projects.projects.map((project) => {
@@ -38,8 +46,14 @@ const Portfolio = ({ padding }) => {
             })}
           </div>
 
-          <button className="main-btn" onClick={() => setIsExtra(!isExtra)}>
-            Extra Projects {!isExtra ? <BsArrowDown /> : <BsArrowUp />}
+          <button
+            className="main-btn"
+            onClick={() => setIsExtra(!isExtra)}
+            data-aos="fade-in"
+          >
+            <p>Extra Projects {!isExtra ? <BsArrowDown /> : <BsArrowUp />}</p>
+
+            <span></span>
           </button>
 
           <div className="projects extra" ref={extraRef} style={extraStyles}>
@@ -64,13 +78,16 @@ const Portfolio = ({ padding }) => {
   );
 };
 const Wrapper = styled.section`
-  padding: 100px 0;
+  padding: 50px 0;
   .container {
     h2 {
       margin-bottom: 50px;
       font-size: 40px;
-      letter-spacing: 5px;
+      /* letter-spacing: 5px; */
       font-family: "Acme", sans-serif;
+      display: flex;
+      gap: 5px;
+      /* margin: 0; */
     }
     .wrapper {
       .projects {

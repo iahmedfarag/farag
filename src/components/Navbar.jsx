@@ -35,6 +35,12 @@ const Navbar = () => {
   );
 };
 const Wrapper = styled.nav`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 55;
+
   font-family: "Acme", sans-serif;
   height: 100px;
   display: flex;
@@ -71,6 +77,7 @@ const Wrapper = styled.nav`
   }
 
   @media (max-width: 576px) {
+    height: 70px;
     .container {
       .wrapper {
         .nav-links {

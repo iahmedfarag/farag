@@ -1,22 +1,19 @@
 import React from "react";
 import { styled } from "styled-components";
 import LetterElement from "./LetterElement.jsx";
-import {
-  BsArrowRight,
-  BsArrowLeft,
-  BsArrowDown,
-  BsArrowUp,
-} from "react-icons/bs";
+import { AiFillLinkedin, AiFillGithub } from "react-icons/ai";
+import AOS from "aos";
+
 import DownArror from "./DownArror.jsx";
 import UpArrow from "./UpArrow.jsx";
+import { Link } from "react-router-dom";
 const Hero = () => {
   let hi = "h i ,";
   let im = "i ' m  . f a r a g , ";
   //   let web = "w e b . d e v e l o p e r ";
-  let dev = "f r o n t . e n d . d e v e l o p e r";
+  let dev = "f r o n t . e n d . . d e v e l o p e r";
 
   let isScrolled = false;
-
   return (
     <Wrapper>
       <div className="container">
@@ -51,7 +48,19 @@ const Hero = () => {
               })}
             </h2>
           </div>
-          <button className="main-btn">Download CV</button>
+          <button className="main-btn">
+            <p>Download CV</p>
+            <span></span>
+          </button>
+        </div>
+
+        <div className="icons">
+          <Link className="git animate__animated animate__bounceIn animate__repeat-2	animate__delay-3s animate__slow	">
+            <AiFillGithub />
+          </Link>
+          <Link className="linked animate__animated animate__bounceIn animate__repeat-2	animate__delay-3s	animate__slow">
+            <AiFillLinkedin />
+          </Link>
         </div>
       </div>
     </Wrapper>
@@ -59,6 +68,8 @@ const Hero = () => {
 };
 const Wrapper = styled.section`
   font-family: "Acme", sans-serif;
+  /* padding: 200px 0; */
+  margin-top: 100px;
 
   .container {
     position: relative;
@@ -89,7 +100,29 @@ const Wrapper = styled.section`
         }
       }
     }
+    .icons {
+      position: absolute;
+      top: 25%;
+      right: 0;
+      transform: translateY(-50%);
+      display: flex;
+      gap: 50px;
+      a {
+        font-size: 30px;
+        &.git {
+          color: #171515;
+        }
+        &.linked {
+          color: #0a66c2;
+        }
+        &:hover {
+          opacity: 0.5;
+          color: var(--color-red);
+        }
+      }
+    }
   }
+
   @media (max-width: 992px) {
     .container {
       .wrapper {
@@ -115,9 +148,12 @@ const Wrapper = styled.section`
     }
   }
   @media (max-width: 576px) {
+    margin-top: 70px;
     padding: 0 10px;
     .container {
       .wrapper {
+        height: calc(100vh - 70px);
+
         .content {
           h2:last-child {
             font-size: 28px;

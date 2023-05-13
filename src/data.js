@@ -163,7 +163,7 @@ export const portfolio = {
       id: nanoid(),
       thumbnail: colorthumb,
       images: [colorthumb, color1],
-      title: "Photo Editor",
+      title: "Color Generator",
       short_description:
         "Color Generator is a website that helps you choose the perfect color for your project.",
       description:

@@ -6,7 +6,6 @@ import {
   Layout,
   PortfolioPage,
   ProjectDetails,
-  Skills,
 } from "./pages";
 
 function App() {
@@ -26,10 +25,6 @@ function App() {
         {
           path: "/portfolio",
           element: <PortfolioPage />,
-        },
-        {
-          path: "/skills",
-          element: <Skills />,
         },
         {
           path: "/contact",
