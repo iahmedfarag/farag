@@ -4,6 +4,9 @@
   margin: 0;
   padding: 0;
 }
+html {
+  scroll-behavior: smooth;
+}
 :root {
   --color-red: #a7233a;
   --color-red-dark: #962034;

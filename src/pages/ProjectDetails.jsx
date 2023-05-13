@@ -4,36 +4,50 @@ import { portfolio } from "../data.js";
 import { useParams, Link } from "react-router-dom";
 import { AiFillGithub } from "react-icons/ai";
 import { BsFillShareFill } from "react-icons/bs";
+import { useAppContext } from "../context.jsx";
+
 const ProjectDetails = () => {
+  const { setIsLoading, isLoading } = useAppContext();
   const { category, id } = useParams();
-  const [project, setProject] = useState({});
+  const [project, setProject] = useState(null);
 
   useEffect(() => {
+    setIsLoading(true);
     if (category === "projects") {
-      const proj = portfolio.projects.filter((item) => item.id === Number(id));
+      const proj = portfolio.projects.filter(async (item) => {
+        return item.id == id;
+      });
       setProject(...proj);
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 1000);
     }
     if (category === "extra") {
-      const proj = portfolio.extra.filter((item) => item.id === Number(id));
+      const proj = portfolio.extra.filter(async (item) => {
+        return item.id == id;
+      });
       setProject(...proj);
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 1000);
     }
   }, []);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-  if (!project) {
-    return <></>;
-  }
 
-  // const { description, features, images, skills, thumbnail, title, urls } =
-  //   project;
+  if (isLoading) {
+    return <h1>Loading...</h1>;
+  }
 
   if (project) {
     return (
       <Wrapper>
         <div className="container">
           <h1>
-            <Link to="/portfolio">Portfolio / </Link> {project?.title}
+            <Link to="/portfolio">Portfolio</Link> <span> / </span>
+            {project?.title}
           </h1>
           <div className="wrapper">
             <div className="images">
@@ -47,7 +61,7 @@ const ProjectDetails = () => {
 
               <div>
                 <p>
-                  {project?.description?.body}
+                  {project?.description}
                   <span></span>
                 </p>
               </div>
@@ -101,8 +115,16 @@ const Wrapper = styled.main`
     h1 {
       margin-bottom: 50px;
       color: var(--color-red);
+      span {
+        color: var(--color-black);
+        user-select: none;
+      }
       a {
         color: var(--color-black);
+        transition: 0.1s;
+        &:hover {
+          color: var(--color-red);
+        }
       }
     }
     .wrapper {

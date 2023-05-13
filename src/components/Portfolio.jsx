@@ -1,10 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { styled } from "styled-components";
 import { portfolio as projects } from "../data.js";
-
+import {
+  BsArrowRight,
+  BsArrowLeft,
+  BsArrowDown,
+  BsArrowUp,
+} from "react-icons/bs";
 import Project from "./Project.jsx";
 const Portfolio = ({ padding }) => {
   const [isExtra, setIsExtra] = useState(false);
+  const extraRef = useRef(null);
+
+  const extraStyles = {
+    maxHeight: isExtra ? `${extraRef.current.scrollHeight + "px"}` : "0px",
+  };
 
   return (
     <Wrapper style={{ padding: padding ? padding : "100px 0" }}>
@@ -27,31 +37,26 @@ const Portfolio = ({ padding }) => {
               );
             })}
           </div>
-          <button
-            className="main-btn"
-            onClick={() => {
-              setIsExtra(!isExtra);
-            }}
-          >
-            Extra Projects
+
+          <button className="main-btn" onClick={() => setIsExtra(!isExtra)}>
+            Extra Projects {!isExtra ? <BsArrowDown /> : <BsArrowUp />}
           </button>
-          <div className="projects extra">
-            {isExtra &&
-              projects.extra.map((project) => {
-                const { id, thumbnail, title, short_description, urls } =
-                  project;
-                return (
-                  <Project
-                    key={id}
-                    id={id}
-                    thumbnail={thumbnail}
-                    title={title}
-                    short_description={short_description}
-                    urls={urls}
-                    category={"extra"}
-                  />
-                );
-              })}
+
+          <div className="projects extra" ref={extraRef} style={extraStyles}>
+            {projects.extra.map((project) => {
+              const { id, thumbnail, title, short_description, urls } = project;
+              return (
+                <Project
+                  key={id}
+                  id={id}
+                  thumbnail={thumbnail}
+                  title={title}
+                  short_description={short_description}
+                  urls={urls}
+                  category={"extra"}
+                />
+              );
+            })}
           </div>
         </div>
       </div>
@@ -74,11 +79,16 @@ const Wrapper = styled.section`
         gap: 40px;
         &.extra {
           margin-top: 50px;
+          overflow: hidden;
+          transition: 0.5s;
+          max-height: 0;
         }
       }
       .main-btn {
         margin: 0 auto;
         margin-top: 50px;
+        display: flex;
+        align-items: center;
       }
     }
   }
