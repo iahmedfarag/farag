@@ -34,7 +34,7 @@ import {
 export const navLinks = [
   { id: nanoid(), text: "About", url: "/about" },
   { id: nanoid(), text: "Portfolio", url: "/portfolio" },
-  { id: nanoid(), text: "Skills", url: "/skills" },
+  // { id: nanoid(), text: "Skills", url: "/skills" },
   { id: nanoid(), text: "Contact", url: "/contact" },
 ];
 

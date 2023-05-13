@@ -39,6 +39,16 @@ const Project = ({
 const Wrapper = styled.article`
   background-color: var(--color-white);
   width: calc(50% - 20px);
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  &:hover {
+    div {
+      div {
+        .more-btn {
+          color: var(--color-red);
+        }
+      }
+    }
+  }
   img {
     width: 100%;
     height: 300px;

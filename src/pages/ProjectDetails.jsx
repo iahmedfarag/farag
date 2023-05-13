@@ -110,7 +110,6 @@ const ProjectDetails = () => {
 };
 const Wrapper = styled.main`
   padding: 50px 0;
-
   .container {
     h1 {
       margin-bottom: 50px;
