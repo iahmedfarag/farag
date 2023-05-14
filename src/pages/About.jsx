@@ -12,7 +12,7 @@ const About = () => {
 
     setTimeout(() => {
       setIsLoading(false);
-    }, 5000);
+    }, 500);
   }, []);
 
   useEffect(() => {
