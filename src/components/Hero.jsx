@@ -55,10 +55,16 @@ const Hero = () => {
         </div>
 
         <div className="icons">
-          <Link className="git animate__animated animate__bounceIn animate__repeat-2	animate__delay-1s animate__slow	">
+          <Link
+            to={"https://github.com/iahmedfarag"}
+            className="git animate__animated animate__bounceIn animate__repeat-2	animate__delay-1s animate__slow	"
+          >
             <AiFillGithub />
           </Link>
-          <Link className="linked animate__animated animate__bounceIn animate__repeat-2	animate__delay-1s	animate__slow">
+          <Link
+            to={"https://www.linkedin.com/in/ahmed-farag-16433b260/"}
+            className="linked animate__animated animate__bounceIn animate__repeat-2	animate__delay-1s	animate__slow"
+          >
             <AiFillLinkedin />
           </Link>
         </div>
