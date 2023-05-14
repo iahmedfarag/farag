@@ -3,6 +3,7 @@ import { styled } from "styled-components";
 import icon from "../assets/images/logo/favicon3.ico";
 import { navLinks } from "../data.js";
 import { Link } from "react-router-dom";
+import cv from "../assets/cv.pdf";
 const Navbar = () => {
   return (
     <Wrapper>
@@ -28,7 +29,14 @@ const Navbar = () => {
             </ul>
           </div>
           {/* fill */}
-          <div className="empty"></div>
+          <div className="cv">
+            <buton className="main-btn">
+              <a href={cv} download={"cv"}>
+                <p>Download CV</p>
+                <span></span>
+              </a>
+            </buton>
+          </div>
         </div>
       </div>
     </Wrapper>
@@ -76,6 +84,30 @@ const Wrapper = styled.nav`
     }
   }
 
+  @media (max-width: 768px) {
+    .container {
+      .wrapper {
+        .nav-links {
+          ul {
+            gap: 10px;
+            li {
+              a {
+                font-size: 20px;
+              }
+            }
+          }
+        }
+
+        .cv {
+          /* display: none; */
+          .main-btn {
+            padding: 8px 18px;
+          }
+        }
+      }
+    }
+  }
+
   @media (max-width: 576px) {
     height: 70px;
 
@@ -92,8 +124,8 @@ const Wrapper = styled.nav`
           }
         }
 
-        .empty {
-          /* display: none; */
+        .cv {
+          display: none;
         }
       }
     }
