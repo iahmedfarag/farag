@@ -78,6 +78,18 @@ const Wrapper = styled.nav`
           }
         }
       }
+      .cv {
+        .main-btn {
+          background-color: var(--color-red);
+          color: var(--color-white);
+          span {
+            background-color: var(--color-white);
+          }
+          &:hover {
+            color: var(--color-black);
+          }
+        }
+      }
     }
     @media (min-width: 1200px) {
       max-width: 1140px;
@@ -101,7 +113,7 @@ const Wrapper = styled.nav`
         .cv {
           /* display: none; */
           .main-btn {
-            padding: 8px 18px;
+            padding: 6px 12px;
           }
         }
       }
