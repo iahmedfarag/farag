@@ -118,12 +118,7 @@ const Wrapper = styled.section`
       gap: 50px;
       a {
         font-size: 30px;
-        &.git {
-          color: #171515;
-        }
-        &.linked {
-          color: #0a66c2;
-        }
+
         &:hover {
           opacity: 0.5;
           color: var(--color-red);
