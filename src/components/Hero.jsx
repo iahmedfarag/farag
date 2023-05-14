@@ -3,10 +3,11 @@ import { styled } from "styled-components";
 import LetterElement from "./LetterElement.jsx";
 import { AiFillLinkedin, AiFillGithub } from "react-icons/ai";
 import AOS from "aos";
-
 import DownArror from "./DownArror.jsx";
 import UpArrow from "./UpArrow.jsx";
 import { Link } from "react-router-dom";
+import cv from "../assets/cv.pdf";
+
 const Hero = () => {
   let hi = "h i ,";
   let im = "i ' m  . f a r a g , ";
@@ -49,7 +50,9 @@ const Hero = () => {
             </h2>
           </div>
           <button className="main-btn">
-            <p>Download CV</p>
+            <a href={cv} download={"cv"}>
+              <p>Download CV</p>
+            </a>
             <span></span>
           </button>
         </div>
