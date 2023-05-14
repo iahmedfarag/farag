@@ -3,30 +3,31 @@ import { useAppContext } from "../context.jsx";
 import { styled } from "styled-components";
 import img from "../assets/images/farag.png";
 import { Link } from "react-router-dom";
-
+import { Loading, LetterElement } from "../components";
 const About = () => {
   const { isLoading, setIsLoading } = useAppContext();
+  let title = "A b o u t . . A h m e d . . F a r ag";
 
   useEffect(() => {
     setIsLoading(true);
-
     setTimeout(() => {
       setIsLoading(false);
-    }, 500);
-  }, []);
-
-  useEffect(() => {
+    }, 1000);
     window.scrollTo(0, 0);
   }, []);
 
   if (isLoading) {
-    return <h1>Loading...</h1>;
+    return <Loading loader={"main"}></Loading>;
   }
 
   return (
     <Wrapper>
       <div className="container">
-        <h1>About Ahmed Farag</h1>
+        <h1>
+          {title.split(" ").map((letter, index) => {
+            return <LetterElement key={index} index={index} letter={letter} />;
+          })}
+        </h1>
         <div className="wrapper">
           <header>
             <img src={img} alt="farag" />
@@ -34,28 +35,24 @@ const About = () => {
               Im a front-end developer with more than a year of self-study
               experience. I’m passionate about building user-friendly and
               visually appealing websites and applications.
-              {/* {!x.matches &&
-                `I have a strong
-              understanding of HTML, CSS, and JavaScript, as well as experience
-              with React, Redux, and react-styled-components. I’m also
-              proficient in using Git and GitHub for version control.`} */}
             </p>
           </header>
 
           <div className="content">
             <p>
-              {/* {!x.matches &&
-                `I have also completed the
-                <Link> React 18 Tutorials and Projects Course 2023 </Link> by
-                instructor John Smilga on Udemy, and
-                <Link> React-Styled-Components Course </Link> by instructor John
-                Smilga on Udemy. <br />`} */}
-              I am currently enrolled in a full-stack diploma program at
-              <Link> Route Academy </Link>. I am a highly motivated and
-              self-directed learner with a strong passion for web development. I
-              am always looking for new challenges and opportunities to learn
-              and grow. I am confident that I have the skills and experience to
-              be a valuable asset to any team.
+              I am currently enrolled in a full-stack diploma program at{" "}
+              <Link
+                to={
+                  "https://www.linkedin.com/company/routeacademy/?originalSubdomain=eg"
+                }
+              >
+                Route Academy
+              </Link>
+              . I am a highly motivated and self-directed learner with a strong
+              passion for web development. I am always looking for new
+              challenges and opportunities to learn and grow. I am confident
+              that I have the skills and experience to be a valuable asset to
+              any team.
             </p>
           </div>
 
@@ -80,10 +77,22 @@ const About = () => {
               <h2>Licenses & certifications</h2>
               <ul>
                 <li>
-                  <Link> React 18 Tutorials and Projects Course 2023 </Link>
+                  <Link
+                    to={
+                      "https://www.udemy.com/certificate/UC-22a0ccd7-d5cb-48e7-9926-20c16ab88595/"
+                    }
+                  >
+                    React 18 Tutorials and Projects Course 2023
+                  </Link>
                 </li>
                 <li>
-                  <Link> React-Styled-Components Course </Link>
+                  <Link
+                    to={
+                      "https://www.udemy.com/certificate/UC-ba633535-7150-4ff3-a079-c87b7448926c/"
+                    }
+                  >
+                    React-Styled-Components Course
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -101,6 +110,8 @@ const Wrapper = styled.main`
       /* text-align: center; */
       font-size: 40px;
       margin-bottom: 50px;
+      display: flex;
+      gap: 5px;
     }
     .wrapper {
       p {
@@ -171,11 +182,14 @@ const Wrapper = styled.main`
     }
   }
   @media (max-width: 576px) {
+    /* padding: 30px 0; */
     padding-left: 10px;
     padding-right: 10px;
+    margin-top: 70px;
     .container {
       h1 {
         font-size: 35px;
+        gap: 2px;
       }
       .wrapper {
         p {

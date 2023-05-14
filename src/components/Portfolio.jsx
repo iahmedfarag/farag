@@ -11,7 +11,7 @@ import Project from "./Project.jsx";
 import AOS from "aos";
 import LetterElement from "./LetterElement.jsx";
 
-const Portfolio = () => {
+const Portfolio = ({ showExtra }) => {
   const [isExtra, setIsExtra] = useState(false);
   const extraRef = useRef(null);
   const extraStyles = {
@@ -45,16 +45,17 @@ const Portfolio = () => {
               );
             })}
           </div>
+          {showExtra && (
+            <button
+              className="main-btn"
+              onClick={() => setIsExtra(!isExtra)}
+              data-aos="fade-in"
+            >
+              <p>Extra Projects {!isExtra ? <BsArrowDown /> : <BsArrowUp />}</p>
 
-          <button
-            className="main-btn"
-            onClick={() => setIsExtra(!isExtra)}
-            data-aos="fade-in"
-          >
-            <p>Extra Projects {!isExtra ? <BsArrowDown /> : <BsArrowUp />}</p>
-
-            <span></span>
-          </button>
+              <span></span>
+            </button>
+          )}
 
           <div className="projects extra" ref={extraRef} style={extraStyles}>
             {projects.extra.map((project) => {
@@ -79,6 +80,7 @@ const Portfolio = () => {
 };
 const Wrapper = styled.section`
   padding: 50px 0;
+  overflow: hidden;
   .container {
     h2 {
       margin-bottom: 50px;

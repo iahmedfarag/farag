@@ -1,14 +1,52 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { styled } from "styled-components";
 import { AiFillLinkedin, AiFillGithub } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import LetterElement from "./LetterElement";
 import AOS from "aos";
+import { toast } from "react-toastify";
+import emailjs from "@emailjs/browser";
 
 const ContactComp = () => {
-  AOS.init();
+  const form = useRef();
+  const [values, setValues] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
 
   let title = "C o n t a c t . . m e";
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+    emailjs
+      .sendForm(
+        "service_wy2d0b3",
+        "template_k0mytc9",
+        form.current,
+        "4YWwdpL9ywyxBJtp7"
+      )
+      .then(
+        (result) => {
+          toast.success("Thank you for your message :)");
+          setValues({
+            name: "",
+            email: "",
+            subject: "",
+            message: "",
+          });
+        },
+        (error) => {
+          toast.error(error.text);
+        }
+      );
+  };
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
+
   return (
     <Wrapper>
       <div className="container">
@@ -29,41 +67,93 @@ const ContactComp = () => {
                 needs and see if I can be of assistance.
               </p>
             </header>
-            <form>
+
+            <form ref={form} onSubmit={sendEmail}>
               <div className="row">
                 <div>
-                  <input type="text" placeholder="Name" />
+                  <input
+                    id="name"
+                    type="text"
+                    name="user_name"
+                    placeholder="Name"
+                    value={values.name}
+                    onChange={(e) => {
+                      setValues({ ...values, name: e.target.value });
+                    }}
+                  />
                   <span></span>
                 </div>
+
                 <div>
-                  <input type="email" placeholder="Email" />
+                  <input
+                    id="email"
+                    type="email"
+                    placeholder="Email"
+                    name="from_name"
+                    value={values.email}
+                    onChange={(e) => {
+                      setValues({ ...values, email: e.target.value });
+                    }}
+                  />
                   <span></span>
                 </div>
               </div>
+
               <div className="row">
                 <div>
-                  <input type="text" placeholder="Subject" />
+                  <input
+                    id="subject"
+                    type="text"
+                    placeholder="Subject"
+                    name="subject"
+                    value={values.subject}
+                    onChange={(e) => {
+                      setValues({ ...values, subject: e.target.value });
+                    }}
+                  />
                   <span></span>
                 </div>
               </div>
+
               <div className="row">
                 <div>
                   <textarea
-                    name=""
-                    id=""
+                    id="message"
                     cols="30"
                     rows="10"
                     placeholder="Message"
+                    name="message"
+                    value={values.message}
+                    onChange={(e) => {
+                      setValues({ ...values, message: e.target.value });
+                    }}
                   ></textarea>
                   <span></span>
                 </div>
               </div>
-              <button type="submit" className="main-btn">
+
+              <button
+                type="submit"
+                className="main-btn"
+                value="Send"
+                disabled={
+                  (values.name !== "" &&
+                    values.name !== " " &&
+                    values.email !== "" &&
+                    values.email !== " " &&
+                    values.message !== "" &&
+                    values.message !== " " &&
+                    values.email !== " ") == true
+                    ? false
+                    : true
+                }
+              >
                 <p>Send message!</p>
                 <span></span>
               </button>
             </form>
           </section>
+
           <section
             className="info"
             data-aos="fade-up"

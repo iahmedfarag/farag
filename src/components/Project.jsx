@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { styled } from "styled-components";
 
-import { AiFillGithub } from "react-icons/ai";
+import { AiFillGithub, AiOutlineSearch } from "react-icons/ai";
 import { BsFillShareFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import AOS from "aos";
@@ -17,8 +17,18 @@ const Project = ({
 
   return (
     <Wrapper key={id} data-aos="fade-left">
-      <img src={thumbnail} alt="project" />
-      <div>
+      <div className="img">
+        <img src={thumbnail} alt="project" />
+        <div className="overlay">
+          <div>
+            <Link to={`/${category}/${id}`}>
+              <AiOutlineSearch />
+            </Link>
+          </div>
+        </div>
+      </div>
+
+      <div className="info">
         <h3>
           <Link to={`/${category}/${id}`}>{title}</Link>
         </h3>
@@ -42,21 +52,53 @@ const Wrapper = styled.article`
   background-color: var(--color-white);
   width: calc(50% - 20px);
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  &:hover {
-    div {
+
+  .img {
+    width: 100%;
+    height: 300px;
+    position: relative;
+    img {
+      /* max-width: 100%; */
+      /* height: 300px; */
+      width: 100%;
+      height: 100%;
+    }
+    &:hover {
+      .overlay {
+        width: 100%;
+        height: 100%;
+        div {
+          font-size: 60px;
+        }
+      }
+    }
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0px;
+      height: 0px;
+      background-color: rgba(0, 0, 0, 0.1);
+      transition: 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      transition: 0.5s;
       div {
-        .more-btn {
+        font-size: 30px;
+        color: var(--color-white);
+        transition: 0.1s;
+        position: relative;
+        &:hover {
+          opacity: 0.7;
           color: var(--color-red);
         }
       }
     }
   }
-  img {
-    width: 100%;
-    height: 300px;
-  }
 
-  div {
+  .info {
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -93,6 +135,7 @@ const Wrapper = styled.article`
       }
     }
   }
+
   @media (max-width: 768px) {
     width: 100%;
   }

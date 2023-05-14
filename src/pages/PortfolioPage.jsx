@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Portfolio } from "../components";
+import { Loading, Portfolio } from "../components";
 import { useAppContext } from "../context.jsx";
 import { styled } from "styled-components";
 
@@ -10,23 +10,21 @@ const PortfolioPage = () => {
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
-    }, 500);
-  }, []);
-
-  useEffect(() => {
+    }, 1000);
     window.scrollTo(0, 0);
   }, []);
 
   if (isLoading) {
-    return <h1>Loading...</h1>;
+    return <Loading loader={"portfolio"}></Loading>;
   }
 
   return (
     <Wrapper>
-      <Portfolio padding={"50px"} />
+      <Portfolio padding={"50px"} showExtra={true} />
     </Wrapper>
   );
 };
+
 const Wrapper = styled.main`
   margin-top: 100px;
   @media (max-width: 576px) {

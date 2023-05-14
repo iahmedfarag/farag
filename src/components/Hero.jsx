@@ -55,10 +55,10 @@ const Hero = () => {
         </div>
 
         <div className="icons">
-          <Link className="git animate__animated animate__bounceIn animate__repeat-2	animate__delay-3s animate__slow	">
+          <Link className="git animate__animated animate__bounceIn animate__repeat-2	animate__delay-1s animate__slow	">
             <AiFillGithub />
           </Link>
-          <Link className="linked animate__animated animate__bounceIn animate__repeat-2	animate__delay-3s	animate__slow">
+          <Link className="linked animate__animated animate__bounceIn animate__repeat-2	animate__delay-1s	animate__slow">
             <AiFillLinkedin />
           </Link>
         </div>

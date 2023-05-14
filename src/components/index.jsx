@@ -6,6 +6,7 @@ import Navbar from "./Navbar";
 import Portfolio from "./Portfolio";
 import Project from "./Project";
 import ContactComp from "./ContactComp";
+import Loading from "./Loading";
 export {
   DownArror,
   UpArrow,
@@ -15,4 +16,5 @@ export {
   Portfolio,
   Project,
   ContactComp,
+  Loading,
 };

@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { ContactComp, Hero, Portfolio } from "../components";
+import { ContactComp, Hero, Loading, Portfolio } from "../components";
 import { useAppContext } from "../context.jsx";
 
 const Home = () => {
@@ -9,21 +9,18 @@ const Home = () => {
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
-    }, 500);
-  }, []);
-
-  useEffect(() => {
+    }, 1000);
     window.scrollTo(0, 0);
   }, []);
 
   if (isLoading) {
-    return <h1>Loading...</h1>;
+    return <Loading loader={"main"}></Loading>;
   }
 
   return (
     <>
       <Hero />
-      <Portfolio />
+      <Portfolio showExtra={false} />
       <ContactComp />
     </>
   );

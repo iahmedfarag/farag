@@ -5,6 +5,7 @@ import { useParams, Link } from "react-router-dom";
 import { AiFillGithub } from "react-icons/ai";
 import { BsFillShareFill } from "react-icons/bs";
 import { useAppContext } from "../context.jsx";
+import Loading from "../components/Loading.jsx";
 
 const ProjectDetails = () => {
   const { setIsLoading, isLoading } = useAppContext();
@@ -38,7 +39,7 @@ const ProjectDetails = () => {
   }, []);
 
   if (isLoading) {
-    return <h1>Loading...</h1>;
+    return <Loading loader={"portfolio"}></Loading>;
   }
 
   if (project) {

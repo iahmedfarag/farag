@@ -78,16 +78,22 @@ const Wrapper = styled.nav`
 
   @media (max-width: 576px) {
     height: 70px;
+
     .container {
       .wrapper {
         .nav-links {
           ul {
+            /* gap: 0px; */
             li {
               a {
                 font-size: 20px;
               }
             }
           }
+        }
+
+        .empty {
+          /* display: none; */
         }
       }
     }

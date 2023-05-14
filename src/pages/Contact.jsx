@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useAppContext } from "../context.jsx";
-import { ContactComp } from "./../components";
+import { ContactComp, Loading } from "./../components";
 import { styled } from "styled-components";
 const Contact = () => {
   const { isLoading, setIsLoading } = useAppContext();
@@ -9,15 +9,12 @@ const Contact = () => {
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
-    }, 500);
-  }, []);
-
-  useEffect(() => {
+    }, 1000);
     window.scrollTo(0, 0);
   }, []);
 
   if (isLoading) {
-    return <h1>Loading...</h1>;
+    return <Loading loader={"contact"}></Loading>;
   }
 
   return (
