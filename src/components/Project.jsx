@@ -74,11 +74,12 @@ const Wrapper = styled.article`
     }
     .overlay {
       position: absolute;
-      top: 0;
-      left: 0;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
       width: 0px;
       height: 0px;
-      background-color: rgba(0, 0, 0, 0.1);
+      background-color: rgba(0, 0, 0, 0);
       transition: 0.2s;
       display: flex;
       align-items: center;
@@ -86,13 +87,12 @@ const Wrapper = styled.article`
       overflow: hidden;
       transition: 0.5s;
       div {
-        font-size: 30px;
-        color: var(--color-white);
+        font-size: 20px;
+        color: var(--color-red);
         transition: 0.1s;
         position: relative;
         &:hover {
           opacity: 0.7;
-          color: var(--color-red);
         }
       }
     }
