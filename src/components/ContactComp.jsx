@@ -247,17 +247,10 @@ const Wrapper = styled.main`
     .info {
       background-color: var(--color-white);
       padding: 10px;
-<<<<<<< HEAD
       padding-bottom: 50px;
       align-self: flex-end;
       position: relative;
       /* &::after {
-=======
-      padding-bottom: 100px;
-      align-self: flex-end;
-      position: relative;
-      &::after {
->>>>>>> 87e3273a284a0778369dd8ddb368ae4984db71fb
         content: "";
         position: absolute;
         width: 100%;
@@ -266,11 +259,8 @@ const Wrapper = styled.main`
         top: 75%;
         transform: translateY(-50%);
         left: 0;
-<<<<<<< HEAD
       } */
-=======
       }
->>>>>>> 87e3273a284a0778369dd8ddb368ae4984db71fb
       ul {
         display: flex;
         flex-direction: column;
