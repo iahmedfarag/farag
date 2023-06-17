@@ -11,23 +11,21 @@ const ProjectDetails = () => {
   const { setIsLoading, isLoading } = useAppContext();
   const { category, id } = useParams();
   const [project, setProject] = useState(null);
-
+  // console.log(project);
   useEffect(() => {
     setIsLoading(true);
     if (category === "projects") {
-      const proj = portfolio.projects.filter(async (item) => {
-        return item.id == id;
-      });
-      setProject(...proj);
+      const proj = portfolio.projects.find((item) => item.id === id);
+      console.log(proj);
+      setProject({ ...proj });
       setTimeout(() => {
         setIsLoading(false);
       }, 1000);
     }
     if (category === "extra") {
-      const proj = portfolio.extra.filter(async (item) => {
-        return item.id == id;
-      });
-      setProject(...proj);
+      const proj = portfolio.extra.find((item) => item.id == id);
+      setProject({ ...proj });
+
       setTimeout(() => {
         setIsLoading(false);
       }, 1000);

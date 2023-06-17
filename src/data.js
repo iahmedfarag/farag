@@ -44,7 +44,7 @@ export const portfolio = {
     // newest first
     // time-zone
     {
-      id: nanoid(),
+      id: "p1",
       thumbnail: timethumb,
       images: [time1, time2, time3, time4],
       title: "Time Zone",
@@ -76,7 +76,7 @@ export const portfolio = {
     },
     // job-hunter
     {
-      id: nanoid(),
+      id: "p2",
       thumbnail: jobthumb,
       images: [job1, job2, job3, job4],
       title: "Job Hunter",
@@ -108,7 +108,7 @@ export const portfolio = {
     },
     // athath
     {
-      id: nanoid(),
+      id: "p3",
       thumbnail: athaththumb,
       images: [athath1, athath2, athath3],
       title: "Athath",
@@ -134,7 +134,7 @@ export const portfolio = {
     },
     // designer
     {
-      id: nanoid(),
+      id: "p4",
       thumbnail: desthumb,
       images: [des1],
       title: "DES",
@@ -160,7 +160,7 @@ export const portfolio = {
     // newest first
     // color-gen
     {
-      id: nanoid(),
+      id: "e1",
       thumbnail: colorthumb,
       images: [colorthumb, color1],
       title: "Color Generator",
@@ -184,7 +184,7 @@ export const portfolio = {
     },
     // trainer
     {
-      id: nanoid(),
+      id: "e2",
       thumbnail: trainerthumb,
       images: [trainer1],
       title: "Trainer",
@@ -208,7 +208,7 @@ export const portfolio = {
     },
     // photo-editor
     {
-      id: nanoid(),
+      id: "e3",
       thumbnail: photothumb,
       images: [photothumb, photo1],
       title: "Photo Editor",
