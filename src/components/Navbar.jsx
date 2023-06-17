@@ -3,7 +3,7 @@ import { styled } from "styled-components";
 import icon from "../assets/images/logo/favicon3.ico";
 import { navLinks } from "../data.js";
 import { Link } from "react-router-dom";
-import cv from "../assets/cv.pdf";
+import cv from "../assets/ahmed_farag_front_end_react_cv.pdf";
 const Navbar = () => {
   return (
     <Wrapper>
@@ -31,7 +31,7 @@ const Navbar = () => {
           {/* fill */}
           <div className="cv">
             <buton className="main-btn">
-              <a href={cv} download={"cv"}>
+              <a href={cv} download={"ahmed_farag_front_end_react_cv"}>
                 <p>Download CV</p>
                 <span></span>
               </a>

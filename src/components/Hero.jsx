@@ -6,7 +6,7 @@ import AOS from "aos";
 import DownArror from "./DownArror.jsx";
 import UpArrow from "./UpArrow.jsx";
 import { Link } from "react-router-dom";
-import cv from "../assets/cv.pdf";
+import cv from "../assets/ahmed_farag_front_end_react_cv.pdf";
 
 const Hero = () => {
   let hi = "h i ,";
@@ -50,7 +50,7 @@ const Hero = () => {
             </h2>
           </div>
           <button className="main-btn">
-            <a href={cv} download={"cv"}>
+            <a href={cv} download={"ahmed_farag_front_end_react_cv"}>
               <p>Download CV</p>
             </a>
             <span></span>
