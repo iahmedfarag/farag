@@ -260,19 +260,18 @@ const Wrapper = styled.main`
         transform: translateY(-50%);
         left: 0;
       } */
-      }
-      ul {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        li {
-          a {
-            margin-right: 10px;
-            font-size: 20px;
-            transition: 0.2s;
-            &:hover {
-              color: var(--color-red);
-            }
+    }
+    ul {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      li {
+        a {
+          margin-right: 10px;
+          font-size: 20px;
+          transition: 0.2s;
+          &:hover {
+            color: var(--color-red);
           }
         }
       }
